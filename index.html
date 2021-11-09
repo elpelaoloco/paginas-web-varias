@@ -13,7 +13,7 @@
         <nav id="header-nav" class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class = "navbar-header">
-                    <a href="index.html">
+                    <a id = "imagen" href="index.html">
                         <div id ="logo-image" alt = "logo" class="pull-left visible-lg visible-md visible-sm"></div>
                     </a>   
                 </div>
@@ -28,13 +28,34 @@
             <h1 id="inicio" class="d-flex justify-content-center">Epic Prime</h1>
             <h2 id ="texto" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex justify-content-center">El mejor servicio de streaming y videojuegos del pais</h1>
             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex justify-content-center">
-                <button type="button" class="btn btn-dark" id="boton">Iniciar Sesion</button>
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" id="boton">Iniciar Sesion</button>
             </div>
-            
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ingreso</h5>
+                            <button type="button" id="salida" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body d-flex justify-content-center">
+                            <form action="">
+                                <input class="form-control" type="text" name="user" placeholder="Usuario"><br>
+                                <input class = "form-control" type="password" name="contraseña" placeholder="Contraseña">
+                            </form>
+                        </div>
+                        <button  id="botones" type="button" class="btn btn-primary">Iniciar Sesion</button>
+                        <button id="botones" type="button" class="btn-cancel btn-secondary" data-bs-dismiss="modal">Close</button> 
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>    
     </main>         
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+#logo-image {
+    background: url("Epic-prime-removebg-preview.png") no-repeat;
+    width: 150px;
+    height: 120px;
+    background-size:contain;
+    margin-bottom: 0px;
+}
+#usuario {
+    color: white;
+    font-size: 25px;
+}
+#usuario:hover {
+    color: grey;
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+#boton {
+    margin-top:5%;
+    font-size: 20px;
+}
+#boton:hover{
+    color: grey;
+}
+#fondo{
+    background: url(pexels-lucie-liz-3165335.jpg) no-repeat fixed;
+    background-size: cover;
+    padding: 0px;
+    margin: 0px;
+    height: 720px;
+}
+#texto, #inicio {
+    color: white;
+}
+#inicio {
+    margin-top: 5%;
+}

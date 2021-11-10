@@ -149,3 +149,7 @@ main{
     font-weight: 600;
     font-family: 'Roboto', sans-serif !important
 }
+#gamepad {
+    margin-bottom: 7%;
+
+}

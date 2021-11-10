@@ -151,5 +151,13 @@ main{
 }
 #gamepad {
     margin-bottom: 7%;
-
+}
+#registro {
+    font-size: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    border: none;
+}
+#registro:hover{
+    color: grey;
 }

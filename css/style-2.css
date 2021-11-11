@@ -1,0 +1,61 @@
+#logo-image {
+    background: url("Epic-prime-removebg-preview.png") no-repeat;
+    width: 150px;
+    height: 120px;
+    background-size:contain;
+    margin-bottom: 0px;
+}
+#fondo{
+    background: url(pexels-lucie-liz-3165335.jpg) no-repeat fixed;
+    background-size: cover;
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+
+}
+#cuenta {
+    font-size: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    border: none;
+}
+#cuenta:hover{
+    color: grey;
+}
+.carousel-item{
+    width: 40%;
+    height: 60%;
+
+}
+#carrusel {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto !important;
+    margin: auto;
+}
+#boton-img {
+position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color:transparent;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: 2px solid purple;
+  cursor: pointer;
+  border-radius: 5px;
+}
+@media screen and (min-width: 540px) and (max-width: 650px) {
+    #boton-img{
+        top: 80%;
+    }
+}
+@media screen and (min-width: 0) and (max-width: 539) {
+    #boton-img{
+        top: 50%;
+    }
+}
+    

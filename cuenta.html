@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>  
-    <header>
+    <header> <!-- Header-->
         <nav id="header-nav" class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class = "navbar-header">
@@ -15,55 +15,78 @@
                         <div id ="logo-image" alt = "logo" class="pull-left visible-lg visible-md visible-sm"></div>
                     </a>   
                 </div>
-                <li class="pull-left d-flex nav-item justify-content-end">
-                    <button id="Cuenta" type="button" class="btn btn-dark"  data-bs-toggle="modal" data-bs-target="#Modal2">Cuenta</button>
-                </li>
+                <div class="dropdown">
+                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Cuenta
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">Informacion Personal</a></li>
+                      <li><a class="dropdown-item" href="#">Suscripciones Activas</a></li>
+                      <li><a class="dropdown-item" href="#">Horas Acvtivas</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
     <div id = "fondo">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                <img id="carrusel" src="GOG.jpg" class="d-block w-100" alt="...">
-                    <button id="boton-img">Hooool</button>
-                </img>
+        <div>
+            <h2 class="text-white d-flex justify-content-start">Bienvenido --insertar nombre-- !!!!!!</h2>
+            <h1 class="text-center d-flex justify-content-center text-white">Elige tu Proveedor De Streaming</h1>
+            <h3 class="text-center d-flex justify-content-center text-white"> Haz click para ver</h3>
+            <a  href="#contenedor" class="center-con">
+                <div class="round">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <div class="carousel-item">
-                <img id="carrusel" src="steam.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                <img  id="carrusel" src="play store.webp" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img  id="carrusel" src="xbox.jpg" class="d-block w-100" alt="">
-                </div>
-                <div class="carousel-item">
-                    <img  id="carrusel" src="Epic.webp" class="d-block w-100" alt="">
-                </div>
-                <div class="carousel-item">
-                    <img  id="carrusel" src="nintendo.jpg" class="d-block w-100" alt="">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-            </div>
+            </a>
         </div>
     </div>
+        <!--  sistema de cards -->
+    <div class="row" id="contenedor">
+        <div class="col-lg-3" margin id="card-container">
+            <div class="card" style="width: 18rem;">
+                <img src="/proveedores/Netflix.png" class="card-img-top" alt="...">
+                <div class="card-body text-white bg-secondary">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>  
+        </div>
+        <div class=" col-lg-3" id="card-container">
+            <div class="card" style="width: 18rem;">
+                <img src="proveedores/crunchyroll-1000x600.png" class="card-img-top" alt="...">
+                <div class="card-body text-white bg-secondary">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>  
+        </div>
+        <div class=" col-lg-3" id="card-container">
+            <div class="card" style="width: 18rem;">
+                <img src="proveedores/Prime Video.jpg" class="card-img-top" alt="...">
+                <div class="card-body text-white bg-secondary">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>  
+        </div>
+        <div class=" col-lg-3" id="card-container">
+            <div class="card" style="width: 18rem;">
+                <img src="proveedores/funimation.jpg" class="card-img-top" alt="...">
+                <div class="card-body text-white bg-secondary">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>

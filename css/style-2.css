@@ -11,6 +11,7 @@
     padding: 0px;
     margin: 0px;
     height: 100%;
+    margin-bottom: 0px;
 
 }
 #cuenta {
@@ -22,40 +23,105 @@
 #cuenta:hover{
     color: grey;
 }
-.carousel-item{
-    width: 40%;
-    height: 60%;
+
+#dropdownMenulink {
+    font-size: 22px;
+    color: grey;
+    border: none;
+}
+#dropdownMenulink:hover{
+    color: white;
 
 }
-#carrusel {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-    width: auto !important;
-    margin: auto;
+.dropdown-menu {
+    left:auto !important;
+    right:0 !important ;
 }
-#boton-img {
-position: absolute;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color:transparent;
-  color: white;
-  font-size: 16px;
-  padding: 12px 24px;
-  border: 2px solid purple;
-  cursor: pointer;
-  border-radius: 5px;
+.card {
+    border: black !important;
+    border-radius: px !important;
 }
-@media screen and (min-width: 540px) and (max-width: 650px) {
-    #boton-img{
-        top: 80%;
-    }
+#contenedor {
+    background-color: #343a40;
+    margin-top: 0px ;
+    
 }
-@media screen and (min-width: 0) and (max-width: 539) {
-    #boton-img{
-        top: 50%;
-    }
+#card-container {
+    margin-top: 4%;
 }
     
+body {
+    background: #000;
+}
+
+.center-con {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.round {
+    position: relative;
+    border: 3px solid #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+span {
+    z-index: 999;
+    height: 3px;
+    margin:1px;
+    width: 30px;
+    background: #fff;
+    transition: 0.4s ease;
+}
+
+span:first-child {
+    display: block;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 25%;
+    bottom: 35%;
+}
+
+span:nth-child(2) {
+    display: block;
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 45%;
+    bottom: 35%;
+}
+
+span:nth-child(3) {
+    display: block;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 25%;
+    bottom: 54%;
+}
+
+span:nth-child(4) {
+    display: block;
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 45%;
+    bottom: 54%;
+}
+
+.round:hover span:nth-child(1) {
+    transform: rotate(-135deg);
+}
+
+.round:hover span:nth-child(2) {
+    transform: rotate(135deg);
+}
+
+.round:hover span:nth-child(3) {
+    transform: rotate(225deg);
+}
+
+.round:hover span:nth-child(4) {
+    transform: rotate(-225deg);
+}

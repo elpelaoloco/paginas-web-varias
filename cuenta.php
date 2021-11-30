@@ -1,3 +1,12 @@
+<?php 
+session_start();
+$varsesion = $_SESSION["usuario"]
+if ($varsesion = null | $varsesion = ""){
+    echo "No tiene Autorizacion";
+    die()
+}
+
+?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">

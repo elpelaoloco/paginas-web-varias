@@ -1,10 +1,10 @@
 <?php 
 session_start();
-$varsesion = $_SESSION["usuario"]
+$varsesion = $_SESSION["usuario"];
 if ($varsesion = null | $varsesion = ""){
     echo "No tiene Autorizacion";
-    die()
-}
+    die();
+};
 
 ?>
 <html lang="es">

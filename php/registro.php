@@ -21,6 +21,8 @@ $consulta3 = $result3 -> fetchAll();
 $rows = count($consulta3);
 
 /* La idea es que acá diriga al menú */ 
+session_start();
+
 if ($rows == 0) {
     $query = "SELECT id FROM usuarios_test ORDER BY -id LIMIT 1";
     $result = $db -> prepare($query);
@@ -32,12 +34,19 @@ if ($rows == 0) {
     $result2 = $db -> prepare($query2);
     $result2 -> execute();
     $consulta2 = $result2 -> fetchAll();
+    $_SESSION["nombre"] =$nombre;
+    $_SESSION["mail"] =$mail;
+    $_SESSION["nombre"] =$usuario;
+    $_SESSION["contraseña"] =$contraseña;
+    header("Location:cuenta.php");
 
     echo "Cuenta Creada!!";
 }
 
 /* La idea es que acá diriga a una página de error más bonita */ 
 if ($rows == 1) {    
+    $_SESSION["error"] = "existe";
+    header("Location: error.php");
     echo "Ya existe el correo en la base de datos, por lo tanto, no es posible crear la cuenta";
 }
 

@@ -9,10 +9,6 @@
 </head>
 <body>
 
-
-
-
-
 <br>
 
 <h3 align="center"> Importación</h3>
@@ -22,11 +18,6 @@
 </form>
 
 <br>
-
-
-
-
-
 
     <div id = "fondo">
     <header><!-- header -->

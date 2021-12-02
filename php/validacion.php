@@ -1,7 +1,4 @@
-
-<body>
-
-<?php 
+<?php session_start();
 require("../php/conexion.php");
 
 $usuario = $_POST["email"];
@@ -19,20 +16,20 @@ $result -> execute();
 $consulta = $result -> fetchAll();
 
 $rows = count($consulta);
-session_start();
-
-
 /* La idea es que acá diriga a una página de error más bonita */ 
 if ($rows == 0) {
     $_SESSION["error"] = 404;
-    header("Location : ../error.php");
-    echo "No existe usuario en la base de datos";
+    header("Location:". "http://codd.ing.puc.cl/~grupo28/php/error");
 }
 
 /* La idea es que acá diriga al menú */ 
-if ($rows == 1) {    
+elseif ($rows == 1) {  
+    
+    
+
+
     header("Location: ../cuenta.php");
-    echo "Sí existe usuario en la base de datos";
+    /* echo "Sí existe usuario en la base de datos"; */
 }
 
 ?>

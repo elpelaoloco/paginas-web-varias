@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 require("../php/conexion.php");
 $nombre = $_POST["name"]; 
 $usuario = $_POST["user"];
@@ -21,7 +21,7 @@ $consulta3 = $result3 -> fetchAll();
 $rows = count($consulta3);
 
 /* La idea es que acá diriga al menú */ 
-session_start();
+
 
 if ($rows == 0) {
     $query = "SELECT id FROM usuarios_test ORDER BY -id LIMIT 1";
@@ -38,7 +38,7 @@ if ($rows == 0) {
     $_SESSION["mail"] =$mail;
     $_SESSION["nombre"] =$usuario;
     $_SESSION["contraseña"] =$contraseña;
-    header("Location:cuenta.php");
+    header("Location:../cuenta.php");
 
     echo "Cuenta Creada!!";
 }

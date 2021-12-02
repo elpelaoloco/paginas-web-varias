@@ -38,7 +38,7 @@
                 };
                 session_destroy();
                 ?>
-                <i class="bi bi-file-x"></i>
+                <i class="bi bi-x-square"></i>
                 
             </h1>
 

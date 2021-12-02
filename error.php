@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -17,9 +20,6 @@
                         <div id ="logo-image" alt = "logo" class="pull-left visible-lg visible-md visible-sm"></div>
                     </a>   
                 </div>
-                <li class="pull-left d-flex nav-item justify-content-end">
-                    <button id="registro" type="button" class="btn btn-dark"  data-bs-toggle="modal" data-bs-target="#Modal2">Registrarse</button>
-                </li>
             </div>
         </nav>
     </header>
@@ -27,20 +27,20 @@
         <div class="row">
             <h1 id="inicio" class="d-flex justify-content-center">Epic Prime</h1>
             <h2 id ="texto" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex justify-content-center">
-                <?php  
-                session_start();
+                <?php
                 $F = $_SESSION["error"] ;
-                if ($F = 404) {
+                if ($F == 404) {
                     echo "No Existe usuario en la base de datos";
-                };
-                if ($F = "existe") {
+                }
+                if ($F == "existe") {
                     echo "Cuenta ya existente";
-                };
+                }
                 session_destroy();
                 ?>
                 <i class="bi bi-x-square"></i>
-                
+            </h2>  
             </h1>
+            
 
         </div>
     </div>    

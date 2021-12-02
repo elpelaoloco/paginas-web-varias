@@ -15,20 +15,21 @@ $result = $db -> prepare($query);
 $result -> execute();
 $consulta = $result -> fetchAll();
 
+
+
+
+
 $rows = count($consulta);
 /* La idea es que acá diriga a una página de error más bonita */ 
 if ($rows == 0) {
     $_SESSION["error"] = 404;
-    header("Location:". "http://codd.ing.puc.cl/~grupo28/php/error");
+    header("Location: " . '../error.php');
+    /*echo "No existe usuaro en la base de datos"; */
 }
 
 /* La idea es que acá diriga al menú */ 
-elseif ($rows == 1) {  
-    
-    
-
-
-    header("Location: ../cuenta.php");
+elseif ($rows == 1) {    
+    header("Location: " . '../cuenta.php');
     /* echo "Sí existe usuario en la base de datos"; */
 }
 

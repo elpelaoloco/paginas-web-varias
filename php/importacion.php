@@ -57,10 +57,8 @@ require("../php/conexion.php");
         }
 
   }
-    header("Location:/home/grupo28/Sites/");
-    die();
-      /* Fin de migración de datos desde tabla usuarios par a impar */
 
-
-
+header("Location: " . '../index.php');
+die();
+/* Fin de migración de datos desde tabla usuarios par a impar */
 ?>

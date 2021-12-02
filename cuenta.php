@@ -1,4 +1,4 @@
-
+<?php session_start();?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -21,9 +21,8 @@
                       Cuenta
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Informacion Personal</a></li>
-                      <li><a class="dropdown-item" href="#">Suscripciones Activas</a></li>
-                      <li><a class="dropdown-item" href="#">Horas Acvtivas</a></li>
+                      <li><a class="dropdown-item" href="php/infor_personal.php">Informacion Personal</a></li>
+                      <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,7 +30,7 @@
     </header>
     <div id = "fondo">
         <div>
-            <h2 class="text-white d-flex justify-content-start">Bienvenido --insertar nombre-- !!!!!!</h2>
+            <h2 class="text-white d-flex justify-content-start">Bienvenido <?php echo $_SESSION["usuario"]?>!!!!!!</h2>
             <h1 class="text-center d-flex justify-content-center text-white">Elige tu Proveedor De Streaming</h1>
             <h3 class="text-center d-flex justify-content-center text-white"> Haz click para ver</h3>
             <a  href="#contenedor" class="center-con">

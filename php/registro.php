@@ -31,7 +31,7 @@ if ($rows == 0) {
     $id = $consulta[0];
 
     $query2 = "INSERT INTO usuarios_test VALUES(($id[0])$num + 1, '$nombre','$mail','$contraseña','$usuario')";
-    $result2 = $db -> prepare($query2);
+    $result2 = $db2 -> prepare($query2);
     $result2 -> execute();
     $consulta2 = $result2 -> fetchAll();
     $_SESSION["nombre"] =$nombre;

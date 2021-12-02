@@ -4,7 +4,6 @@
     $password = 'grupo28';
     $databaseName = 'grupo28e3';
     $db = new PDO("pgsql:dbname=$databaseName;host=localhost;port=5432;user=$user;password=$password");
-
     $user2 = 'grupo43';
     $password2 = 'grupo43';
     $databaseName2 = 'grupo43e3';

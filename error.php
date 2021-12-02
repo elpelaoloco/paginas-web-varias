@@ -20,6 +20,10 @@ session_start();
                         <div id ="logo-image" alt = "logo" class="pull-left visible-lg visible-md visible-sm"></div>
                     </a>   
                 </div>
+                <a id="registro" class= "btn btn-dark pull-left d-flex nav-item justify-content-end" href="index.php">
+                    &laquo; Volver
+
+                </a>
             </div>
         </nav>
     </header>

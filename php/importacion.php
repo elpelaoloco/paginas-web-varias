@@ -32,6 +32,34 @@ require("../php/conexion.php");
 
     /* Cambio contraseña tabla par completado */
 
+    function generarcontraseñaimpar($lenght = 8, $nombre, $horas_jugadas) {
+        $characters = $nombre+$horas_jugadas
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+
+    $query1 = 'SELECT * FROM base_impar';
+    $resultado = $db1 -> prepare($query1);
+    $result1 -> execute();
+    $users = $result1 -> fetchAll();
+
+    foreach ($users as $user) {
+        $nombre_usuario = 'SELECT nombre FROM tabla_usuarios';
+        $id = 'SELECT id FROM tabla_usuarios';
+        $horas_jugadas = 'SELECT cantidas_horas_jugadas FROM usuarios_horas_jugadas WHERE id_usuarios = $id';
+        $nueva_contraseña = generarcontraseñaimpar(8, $nombre_usuario, $horas_jugadas);
+        $query2 = "UPDATE tabla_usuarios SET password = '$nueva_contraseña' WHERE id = $user[0]";
+        $result = $db2 -> prepare($query2);
+        $result -> execute();
+        $consulta2 = $result -> fetchAll();
+    }
+
+
     /* Inicio de migración de datos desde tabla usuarios par a impar */
     /* prueba debe cambiarse en la versión final por usuarios (es la base de usuarios de 28) */
     $query = "SELECT * FROM prueba";

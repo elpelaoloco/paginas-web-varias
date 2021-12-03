@@ -15,10 +15,6 @@ $result = $db2 -> prepare($query);
 $result -> execute();
 $consulta = $result -> fetchAll();
 
-
-
-
-
 $rows = count($consulta);
 /* La idea es que acá diriga a una página de error más bonita */ 
 if ($rows == 0) {

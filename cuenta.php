@@ -38,23 +38,15 @@ require("../php/conexion.php");
             <!--deberia mandar a una pagina distinta e indicar si esque hay o no  busqueda por nombre y proveedor item 3.2-->
             <form action="php/buscador.php" method="post">
                 <label for="">Proveedor</label><br>
-                <input type="text">
+                <input type="text" name="proveedor">
                 <label for="">Nombre</label><br>
-                <input type="text">
+                <input type="text" name="nombre">
                 <button  type="submit" class="btn btn-primary">Buscar</button>
             </form>
-            <a  href="#Botones" class="center-con">
-                <div class="round">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </a>
         </div>
     </div>
     <div class= "form-check">
-        <form method="post" action="">
+        <form method="post" action="php/suscripciones.php">
             <?php 
             $query = "SELECT DISTINCT proveedores.nombre FROM proveedores";
             $result = $db2 -> prepare($query);

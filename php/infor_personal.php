@@ -55,7 +55,6 @@ require("../php/conexion.php");
             </Table>
             Suscripciones Activas
             <?php
-                require("php/conexion.php");
                 $query = "alguna query para este caso";
                 $result = $db2 -> prepare($query);
                 $result -> execute();
@@ -74,10 +73,8 @@ require("../php/conexion.php");
                     }
                 ?>
             </Table>
-
-           Horas Activas
-           <?php
-                require("php/conexion.php");
+            Horas Activas
+            <?php
                 $query = "alguna query para este caso";
                 $result = $db2 -> prepare($query);
                 $result -> execute();

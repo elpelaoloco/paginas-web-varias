@@ -44,26 +44,26 @@ require("../php/conexion.php");
                     }
                 ?>
             </ul>
-                <?php #valor,cantidad y series segun sucripcion item 3.2
-                $proveedor = $_POST["proveedor"];
-                $query = "qery cualquiera";
-                $result = $db2 -> prepare($query);
-                $result -> execute();
-                $consulta = $result -> fetchAll();
-                echo "<h1> $proveedor </h1>";
+            <?php #valor,cantidad y series segun sucripcion item 3.2
+            $proveedor = $_POST["proveedor"];
+            $query = "qery cualquiera";
+            $result = $db2 -> prepare($query);
+            $result -> execute();
+            $consulta = $result -> fetchAll();
+            echo "<h1> $proveedor </h1>";
+            ?>
+            <Table>
+                <tr>
+                    <th>Valor</th>
+                    <th>Cantidad Peliculas</th>
+                    <th>Series</th>
+                </tr>
+                <?php 
+                    foreach($consulta as $info) {
+                        echo "<tr><td>$info[0]</td><td>$info[1]</td><td>$info[2]</td></tr>";
+                    }
                 ?>
-                <Table>
-                    <tr>
-                        <th>Valor</th>
-                        <th>Cantidad Peliculas</th>
-                        <th>Series</th>
-                    </tr>
-                    <?php 
-                        foreach($consulta as $info) {
-                            echo "<tr><td>$info[0]</td><td>$info[1]</td><td>$info[2]</td></tr>";
-                        }
-                    ?>
-                </Table>
+            </Table>
         </div>
     </div>    
     </main>         

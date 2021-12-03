@@ -1,3 +1,6 @@
+<?php session_start();
+require("php/conexion.php");
+?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +11,7 @@
 </head>
 <body>  
     <header> <!-- Header-->
-        <nav id="header-nav" class="navbar navbar-dark bg-dark">
+    <nav id="header-nav" class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class = "navbar-header">
                     <a id = "imagen" href="index.html">
@@ -20,9 +23,8 @@
                       Cuenta
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Informacion Personal</a></li>
-                      <li><a class="dropdown-item" href="#">Suscripciones Activas</a></li>
-                      <li><a class="dropdown-item" href="#">Horas Acvtivas</a></li>
+                      <li><a class="dropdown-item" href="php/infor_personal.php">Informacion Personal</a></li>
+                      <li><a class="dropdown-item" href="index.php">Cerrar Sesion</a></li>
                     </ul>
                 </div>
             </div>
@@ -30,9 +32,17 @@
     </header>
     <div id = "fondo">
         <div>
-            <h2 class="text-white d-flex justify-content-start">Bienvenido --insertar nombre-- !!!!!!</h2>
+            <h2 class="text-white d-flex justify-content-start">Bienvenido <?php echo $_SESSION["mail"]?>!!!!!!</h2>
             <h1 class="text-center d-flex justify-content-center text-white">Elige tu Proveedor De Streaming</h1>
             <h3 class="text-center d-flex justify-content-center text-white"> Haz click para ver</h3>
+            <!--deberia mandar a una pagina distinta e indicar si esque hay o no  busqueda por nombre y proveedor item 3.2-->
+            <form action="php/buscador.php" method="post">
+                <label for="">Proveedor</label><br>
+                <input type="text">
+                <label for="">Nombre</label><br>
+                <input type="text">
+                <button  type="submit" class="btn btn-primary">Buscar</button>
+            </form>
             <a  href="#Botones" class="center-con">
                 <div class="round">
                     <span></span>
@@ -43,9 +53,19 @@
             </a>
         </div>
     </div>
-    <form method="post" action="">
-        
-
+    <div class= "form-check">
+        <form method="post" action="">
+            <?php 
+            $query = "SELECT DISTINCT proveedores.nombre FROM proveedores";
+            $result = $db2 -> prepare($query);
+            $result -> execute();
+            $consulta = $result -> fetchAll();
+            foreach ($consulta as $proveedor) {
+                echo "<input  value= $proveedor[0] class = 'form-check-input'type= 'radio' name = 'proveedor'><br> <label class = 'form-check-label'>$proveedor[0]</label>";
+            }
+            ?>
+            <button type="submit" class = "btn btn-dark">Ver</button>
+    </div>
     </form>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>

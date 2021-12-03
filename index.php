@@ -8,6 +8,17 @@
     <title>Epic Prime</title>
 </head>
 <body>
+
+<br>
+
+<h3 align="center"> Importación</h3>
+
+<form align="center" action="php/importacion.php" method="post">
+  <input type="submit" value="Buscar">
+</form>
+
+<br>
+
     <div id = "fondo">
     <header><!-- header -->
         <nav id="header-nav" class="navbar navbar-dark bg-dark">
@@ -30,7 +41,7 @@
             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex justify-content-center">
                 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" id="boton">Iniciar Sesion</button>
             </div>
-            <!--  pop up de iniciar sesion-->
+            <!--  pop up de iniciar sesion aqui se mete el php -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -41,14 +52,15 @@
                         </div>
                         <div class="modal-body d-flex justify-content-center">
                             <form action="php/validacion.php" method="post">
-                            
                                 <img  id= "gamepad" src="gamepad-definitivo.png" height="100px" width="150px" alt="gamepad">
-                                <input class="form-control" type="email" name="email" placeholder="email"><br>
+                                <input class="form-control" type="email" name="email" placeholder="Email"><br>
                                 <input class = "form-control" type="password" name="contraseña" placeholder="Contraseña">
+                                <br>
+                                <br>
+                                <button  id="botones" type="submit" class="btn btn-primary">Iniciar Sesion</button>
+                                <button id="botones" type="button" class="btn-cancel btn-secondary" data-bs-dismiss="modal">Close</button>   
                             </form>
                         </div>
-                        <button  id="botones" type="button" class="btn btn-primary">Iniciar Sesion</button>
-                        <button id="botones" type="button" class="btn-cancel btn-secondary" data-bs-dismiss="modal">Close</button>   
                     </div>
                 </div>
                 <!-- pop up de registrarse-->
@@ -64,14 +76,17 @@
                         <div class="modal-body d-flex justify-content-center">
                             <form action="php/registro.php" method="post">
                                 <img  id= "gamepad" src="consola-removebg-preview.png" height="100px" width="150px" alt="gamepad">
+                                <input class="form-control" type="text" name="name" placeholder="Nombre"><br>
                                 <input class="form-control" type="text" name="user" placeholder="Usuario"><br>
                                 <input type="email" class="form-control" name="email" placeholder="Email"><br>
                                 <input class = "form-control" type="password" name="contraseña" placeholder="Contraseña">
+                                <br>
+                                <br>
+                                <button  id="botones" type="submit" class="btn btn-primary">Registrarse</button>
+                                <button id="botones" type="button" class="btn-cancel btn-secondary" data-bs-dismiss="modal">Close</button>  
                                 
                             </form>
-                        </div>
-                        <button  id="botones" type="button" class="btn btn-primary">Registrarse</button>
-                        <button id="botones" type="button" class="btn-cancel btn-secondary" data-bs-dismiss="modal">Close</button>   
+                        </div> 
                     </div>
                 </div>
             </div>

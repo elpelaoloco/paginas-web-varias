@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php session_start();
+require("../php/conexion.php");
+?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -21,9 +23,8 @@
                       Cuenta
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Informacion Personal</a></li>
-                      <li><a class="dropdown-item" href="#">Suscripciones Activas</a></li>
-                      <li><a class="dropdown-item" href="#">Horas Acvtivas</a></li>
+                      <li><a class="dropdown-item" href="php/infor_personal.php">Informacion Personal</a></li>
+                      <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
                     </ul>
                 </div>
             </div>
@@ -34,7 +35,8 @@
             <h2 class="text-white d-flex justify-content-start">Bienvenido <?php echo $_SESSION["mail"]?>!!!!!!</h2>
             <h1 class="text-center d-flex justify-content-center text-white">Elige tu Proveedor De Streaming</h1>
             <h3 class="text-center d-flex justify-content-center text-white"> Haz click para ver</h3>
-            <form action="" method="get">
+            <!--deberia mandar a una pagina distinta e indicar si esque hay o no  busqueda por nombre y proveedor item 3.2-->
+            <form action="php/buscador.php" method="post">
                 <label for="">Proveedor</label><br>
                 <input type="text">
                 <label for="">Nombre</label><br>

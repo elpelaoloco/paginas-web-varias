@@ -31,39 +31,20 @@ require("../php/conexion.php");
     <main class="container" id="main-content">
         <div class="row">
             <h1 id="inicio" class="d-flex justify-content-center">Epic Prime</h1>
-            </form>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-                <?php  # top 3 peliculas y series mas vistas item 3.2
-                    $query = "qery cualquiera";
-                    $result = $db2 -> prepare($query);
-                    $result -> execute();
-                    $consulta = $result -> fetchAll();
-    
-                    foreach ($consulta as $top) {
-                        echo "<li><a class='dropdown-item' href='#'>$top[0]</a></li>";
-                    }
-                ?>
-            </ul>
-                <?php #valor,cantidad y series segun sucripcion item 3.2
-                $proveedor = $_POST["proveedor"];
+            <h2 id ="texto" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex justify-content-center">
+                <?php
+                #query para buscar si existe o no
                 $query = "qery cualquiera";
                 $result = $db2 -> prepare($query);
                 $result -> execute();
                 $consulta = $result -> fetchAll();
-                echo "<h1> $proveedor </h1>";
+                echo "<h1> $proveedor</h1>";
+
                 ?>
-                <Table>
-                    <tr>
-                        <th>Valor</th>
-                        <th>Cantidad Peliculas</th>
-                        <th>Series</th>
-                    </tr>
-                    <?php 
-                        foreach($consulta as $info) {
-                            echo "<tr><td>$info[0]</td><td>$info[1]</td><td>$info[2]</td></tr>";
-                        }
-                    ?>
-                </Table>
+            </h2>  
+            </h1>
+            
+
         </div>
     </div>    
     </main>         

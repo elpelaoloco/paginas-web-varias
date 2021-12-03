@@ -46,7 +46,7 @@ if ($rows == 0) {
 /* La idea es que acá diriga a una página de error más bonita */ 
 if ($rows == 1) {    
     $_SESSION["error"] = "existe";
-    header("Location: error.php");
+    header("Location:". '../error.php');
     echo "Ya existe el correo en la base de datos, por lo tanto, no es posible crear la cuenta";
 }
 

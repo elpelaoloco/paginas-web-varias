@@ -6,8 +6,8 @@ require("../php/conexion.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style-2.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style-2.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>  
     <header> <!-- Header-->
@@ -31,6 +31,9 @@ require("../php/conexion.php");
         </nav>
     </header>
     <div id = "fondo">
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex justify-content-center">
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" id="boton">Comprar</button>
+            </div>
         <div>
             <h2 class="text-white d-flex justify-content-start">Bienvenido <?php echo $_SESSION["mail"]?>!!!!!!</h2>
             <h1 class="text-center d-flex justify-content-center text-white">Elige tu Proveedor De Streaming</h1>
@@ -59,8 +62,8 @@ require("../php/conexion.php");
             <button type="submit" class = "btn btn-dark">Ver</button>
     </div>
     </form>
-    <script src="js/popper.min.js"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
 </body>

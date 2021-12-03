@@ -9,7 +9,7 @@
 </head>
 <body>  
     <header> <!-- Header-->
-        <nav id="header-nav" class="navbar navbar-dark bg-dark">
+    <nav id="header-nav" class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class = "navbar-header">
                     <a id = "imagen" href="index.html">
@@ -21,8 +21,9 @@
                       Cuenta
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-                      <li><a class="dropdown-item" href="php/infor_personal.php">Informacion Personal</a></li>
-                      <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+                      <li><a class="dropdown-item" href="#">Informacion Personal</a></li>
+                      <li><a class="dropdown-item" href="#">Suscripciones Activas</a></li>
+                      <li><a class="dropdown-item" href="#">Horas Acvtivas</a></li>
                     </ul>
                 </div>
             </div>
@@ -30,10 +31,17 @@
     </header>
     <div id = "fondo">
         <div>
-            <h2 class="text-white d-flex justify-content-start">Bienvenido <?php echo $_SESSION["usuario"]?>!!!!!!</h2>
+            <h2 class="text-white d-flex justify-content-start">Bienvenido <?php echo $_SESSION["mail"]?>!!!!!!</h2>
             <h1 class="text-center d-flex justify-content-center text-white">Elige tu Proveedor De Streaming</h1>
             <h3 class="text-center d-flex justify-content-center text-white"> Haz click para ver</h3>
-            <a  href="#contenedor" class="center-con">
+            <form action="" method="get">
+                <label for="">Proveedor</label><br>
+                <input type="text">
+                <label for="">Nombre</label><br>
+                <input type="text">
+                <button  type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+            <a  href="#Botones" class="center-con">
                 <div class="round">
                     <span></span>
                     <span></span>
@@ -43,49 +51,20 @@
             </a>
         </div>
     </div>
-        <!--  sistema de cards -->
-    <div class="row" id="contenedor">
-        <div class="col-lg-3" margin id="card-container">
-            <div class="card" style="width: 18rem;">
-                <img src="/proveedores/Netflix.png" class="card-img-top" alt="...">
-                <div class="card-body text-white bg-secondary">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>  
-        </div>
-        <div class=" col-lg-3" id="card-container">
-            <div class="card" style="width: 18rem;">
-                <img src="proveedores/crunchyroll-1000x600.png" class="card-img-top" alt="...">
-                <div class="card-body text-white bg-secondary">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>  
-        </div>
-        <div class=" col-lg-3" id="card-container">
-            <div class="card" style="width: 18rem;">
-                <img src="proveedores/Prime Video.jpg" class="card-img-top" alt="...">
-                <div class="card-body text-white bg-secondary">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>  
-        </div>
-        <div class=" col-lg-3" id="card-container">
-            <div class="card" style="width: 18rem;">
-                <img src="proveedores/funimation.jpg" class="card-img-top" alt="...">
-                <div class="card-body text-white bg-secondary">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>  
-        </div>
+    <div class= "form-check">
+        <form method="post" action="">
+            <?php 
+            $query = "SELECT DISTINCT proveedores.nombre FROM proveedores";
+            $result = $db2 -> prepare($query);
+            $result -> execute();
+            $consulta = $result -> fetchAll();
+            foreach ($consulta as $proveedor) {
+                echo "<input  value= $proveedor[0] class = 'form-check-input'type= 'radio' name = 'proveedor'><br> <label class = 'form-check-label'>$proveedor[0]</label>";
+            }
+            ?>
+            <button type="submit" class = "btn btn-dark">Ver</button>
     </div>
+    </form>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

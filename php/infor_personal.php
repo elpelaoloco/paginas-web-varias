@@ -32,6 +32,14 @@ session_start();
             <h1 id="inicio" class="d-flex justify-content-center">Epic Prime</h1>
             Datos Personales
             
+            <?php 
+            $usuario = $_SESSION["mail"];
+            $contraseña = $_SESSION["contraseña"];
+            $query = "SELECT * FROM usuarios_test WHERE mail = '$usuario' AND password = '$contraseña'";
+            $result = $db2 -> prepare($query);
+            $result -> execute();
+            $consulta = $result -> fetchAll();
+            ?>
             <Table>
                 <tr>
                     <th> Nombre</th>

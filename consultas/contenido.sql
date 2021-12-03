@@ -25,6 +25,9 @@ BEGIN
     proveedores_serie WHERE series.sid = proveedores_serie.sid AND proveedor.pro_id = proveedores_serie.pro_id 
     AND proveedor.pro_id = 1;
     --game
+    SELECT * FROM proveedores, (SELECT * FROM proveedores_precios GROUP BY proveedores_precios.id, proveedores_precios.id_videojuego, 
+    proveedores_precios.precio, proveedores_precios.precio_preorden) as pp, 
+    videojuegos WHERE proveedores.id = pp.id AND pp.id_videojuego = videojuegos.id_videojuego AND proveedores.id = 1 AND pp.precio_preorden is NOT NULL;
 
 
     -- control de flujo

@@ -1,0 +1,8 @@
+CREATE TABLE proveedores(pid SERIAL PRIMARY KEY,nombre varchar(30),plataforma varchar(30));	
+
+CREATE TABLE reseñas(rid SERIAL PRIMARY KEY,vid int,título varchar(30),texto varchar(100),veredicto varchar(10));
+
+CREATE TABLE preordenes(pre_id SERIAL PRIMARY KEY,vid int,usuario varchar(30));
+(1,'Fifa', 214.6,'ESRB Everyone',09-10-2020,'Deportes','Futbol','EA Sports','Disco Blu-Ray','Playstation')
+michael.fuentes@telefonica.com
+ CREATE TABLE videojuegos(vid SERIAL PRIMARY KEY,titulo varchar(30),puntuacion float, clasificacion varchar(30),fecha DATE,generos varchar(30), subgeneros varchar(30),proveedor varchar(30),formato varchar(30),plataforma varchar(30));

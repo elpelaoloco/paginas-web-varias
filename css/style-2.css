@@ -125,3 +125,13 @@ span:nth-child(4) {
 .round:hover span:nth-child(4) {
     transform: rotate(-225deg);
 }
+#Botones {
+margin-left: 30%;
+margin-right: 30%;
+background-color: transparent !important;
+}
+.contenedor {
+background: rgb(10,10,10) !important;
+background: linear-gradient(90deg, rgba(10,10,10,1) 2%, rgba(62,62,70,1) 43%, rgba(127,151,154,1) 95%) !important;
+
+}

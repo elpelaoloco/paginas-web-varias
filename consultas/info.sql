@@ -13,18 +13,16 @@ variable2;
 
 -- definimos nuestra función
 BEGIN
+
     --pelicula
-    SELECT pro_id, nombre, costo, SUM(cuenta) FROM (SELECT proveedor.pro_id, proveedor.nombre, proveedor.costo, COUNT(proveedor.pro_id) 
+    SELECT * FROM (SELECT pro_id, nombre, costo, SUM(cuenta) as suma FROM (SELECT proveedor.pro_id, proveedor.nombre, proveedor.costo, COUNT(proveedor.pro_id) 
     as cuenta FROM proveedor, peliculas, peliculas_en_arriendo WHERE peliculas.pid = peliculas_en_arriendo.pid 
-    AND proveedor.pro_id = peliculas_en_arriendo.pro_id AND proveedor.pro_id = 1 GROUP BY proveedor.pro_id 
+    AND proveedor.pro_id = peliculas_en_arriendo.pro_id AND proveedor.nombre = 'Hulu' GROUP BY proveedor.pro_id 
     UNION SELECT proveedor.pro_id, proveedor.nombre, proveedor.costo, COUNT(proveedor.pro_id) as cuenta FROM proveedor, peliculas, 
-    peliculas_no_arriendo WHERE peliculas.pid = peliculas_no_arriendo.pid AND proveedor.pro_id = peliculas_no_arriendo.pro_id 
-    AND proveedor.pro_id = 1 GROUP BY proveedor.pro_id) as p GROUP BY pro_id, nombre, costo;
-    --serie
-    SELECT proveedor.pro_id, proveedor.nombre, proveedor.costo, COUNT(proveedor.pro_id) as cuenta FROM proveedor, series, 
+    peliculas_no_arriendo WHERE peliculas.pid = peliculas_no_arriendo.pid AND proveedor.pro_id = peliculas_no_arriendo.pro_id AND proveedor.nombre = 'Hulu'
+    GROUP BY proveedor.pro_id) as p GROUP BY pro_id, nombre, costo) as p, (SELECT proveedor.pro_id, proveedor.nombre, proveedor.costo, COUNT(proveedor.pro_id) as cuenta FROM proveedor, series, 
     proveedores_serie WHERE series.sid = proveedores_serie.sid AND proveedor.pro_id = proveedores_serie.pro_id 
-    AND proveedor.pro_id = 1 GROUP BY proveedor.pro_id;
-    --game
+    AND proveedor.nombre = '$proveedor' GROUP BY proveedor.pro_id) as s;
     
     -- control de flujo
     IF condicion THEN

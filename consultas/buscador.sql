@@ -12,25 +12,25 @@ title STR;
 
 -- definimos nuestra función
 BEGIN
-    SELECT tabla oficial.nombre as nombre serie pelicula, clasificacion, puntuacion, ano, tabla oficial.pro id as id proveedor, 
-    proveedor.nombre as nombre proveedor, costo as costo suscripcion
+    SELECT tabla_oficial.nombre as nombre_serie_pelicula, clasificacion, puntuacion, ano, tabla oficial.pro_id as id_proveedor, 
+    proveedor.nombre as nombre_proveedor, costo as costo_suscripcion
     FROM (
-    SELECT nombre, clasificacion, puntuacion, ano, pro id
-    FROM series, proveedores serie
+    SELECT nombre, clasificacion, puntuacion, ano, pro_id
+    FROM series, proveedores_serie
     WHERE UPPER(series.nombre) LIKE UPPER(’titulo %’)
-    AND proveedores serie.sid = series.sid
+    AND proveedores_serie.sid = series.sid
     UNION
-    SELECT peliculas.titulo as nombre, clasificacion, puntuacion, ano, pro id
+    SELECT peliculas.titulo as nombre, clasificacion, puntuacion, ano, pro_id
     FROM peliculas, peliculas no arriendo
     WHERE UPPER(peliculas.titulo) LIKE UPPER(’titulo %’)
     AND peliculas no arriendo.pid = peliculas.pid
     UNION
-    SELECT peliculas.titulo as nombre, clasificacion, puntuacion, ano, pro id
-    FROM peliculas, peliculas en arriendo
+    SELECT peliculas.titulo as nombre, clasificacion, puntuacion, ano, pro_id
+    FROM peliculas, peliculas_en_arriendo
     WHERE UPPER(peliculas.titulo) LIKE UPPER(’titulo %’)
-    AND peliculas en arriendo.pid = peliculas.pid
-    ) as tabla oficial, proveedor
-    WHERE tabla oficial.pro id = proveedor.pro id;
+    AND peliculas_en_arriendo.pid = peliculas.pid
+    ) as tabla_oficial, proveedor
+    WHERE tabla_oficial.pro_id = proveedor.pro_id;
 
     -- control de flujo
     IF condicion THEN

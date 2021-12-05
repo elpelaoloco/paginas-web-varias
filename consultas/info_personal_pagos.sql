@@ -1,0 +1,4 @@
+SELECT pagos_pelis.pago_id, usuarios.id, peliculas_en_arriendo.precio, fecha FROM usuarios, pagos_pelis, peliculas_en_arriendo, proveedor WHERE usuarios.id=pagos_pelis.uid AND pagos_pelis.pro_id = proveedor.pro_id AND peliculas_en_arriendo.pro_id=proveedor.pro_id AND usuarios.id = 1 AND peliculas_en_arriendo.pid = pagos_pelis.pid UNION SELECT pag
+os_subs.pago_id, usuarios.id, proveedor.costo, fecha FROM usuarios, pagos_subs, proveedor, subscripciones, subs_por_pro
+WHERE usuarios.id = pagos_subs.uid AND usuarios.id = 1 AND pagos_subs.subs_id=subscripciones.id AND subs_por_pro.pro_id
+= proveedor.pro_id AND subs_por_pro.subs_id = subscripciones.id;

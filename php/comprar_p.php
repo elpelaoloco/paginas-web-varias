@@ -32,21 +32,27 @@ require("../php/conexion.php");
     <main class="container" id="main-content">
         <div class="row">
             <h1 id="inicio" class="d-flex justify-content-center">Epic Prime</h1>
-            <h2 id ="texto" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex justify-content-center"> Tienda</h2>  
-
+            <h2 id ="texto" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex justify-content-center"> Tienda</h2> 
             <?php
-            #buscar solo titulo distintos
-            $query = "SELECT DISTINCT peliculas.pid, titulo, ano, puntuacion FROM peliculas, peliculas_en_arriendo WHERE peliculas.pid = peliculas_en_arriendo.pid";
-            $result = $db2 -> prepare($query);
+            $result = $db2 -> prepare("SELECT DISTINCT peliculas.pid, titulo, ano, puntuacion FROM peliculas, 
+            peliculas_en_arriendo WHERE peliculas.pid = peliculas_en_arriendo.pid");
             $result -> execute();
-            $consulta = $result -> fetchAll();
-            $contador = 0;
-            foreach ($consulta as $item) {
-                echo "<form method = 'post' action='tienda.php'>
-                    <br><input value =  '$item[0]' placeholder= '$item[1]' nombre = 'pid'><br>
-                </form>";
-            }
+            $dataCollected = $result -> fetchAll();
             ?>
+
+            <form align="center" action="tienda.php" method="post">
+            <p style="color: white";>Seleccionar un Género:</p>
+            <select name="tipo">
+                <?php
+                #Para cada tipo agregamos el tag <option value=value_of_param> visible_value </option>
+                foreach ($dataCollected as $d) {
+                echo "<option value=$d[0]>$d[1]</option>";
+                }
+                ?>
+            </select>
+            <br><br>
+            <input type="submit" class="btn btn-dark" value="Buscar">
+        </form> 
             
 
         </div> 

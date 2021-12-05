@@ -63,7 +63,6 @@ require("../php/conexion.php");
                             <ul>
                                 <?php  # top 3 peliculas y series mas vistas item 3.2
                                 $proveedor = $_POST["proveedor"];
-                                echo $proveedor;
                                 $query = "SELECT * FROM (SELECT peliculas.pid, peliculas.titulo, COUNT(peliculas.pid) as cuenta FROM visualizaciones_pelicula, peliculas, peliculas_en_arriendo, 
                                 proveedor WHERE visualizaciones_pelicula.pid = peliculas.pid AND peliculas_en_arriendo.pid = peliculas.pid 
                                 AND peliculas_en_arriendo.pro_id = proveedor.pro_id AND proveedor.nombre = '$proveedor' GROUP BY peliculas.titulo, peliculas.pid UNION SELECT peliculas.pid, peliculas.titulo, 

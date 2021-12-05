@@ -14,12 +14,15 @@ require("php/conexion.php");
     <nav id="header-nav" class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class = "navbar-header">
-                    <a id = "imagen" href="index.html">
-                        <div id ="logo-image" alt = "logo" class="pull-left visible-lg visible-md visible-sm"></div>
-                    </a>   
-                </div>
-                
+                    <a id = "imagen" href="index.php">
+                        <div id ="logo-image" alt = "logo" class="pull-left"></div>
+                    </a>  
+
+                </div>   
                 <div class="dropdown">
+                    <a class="d-flex justify-content-end btn btn-dark" href ="php/comprar.php">
+                        Tienda
+                    </a>
                     <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                       Cuenta
                     </a>
@@ -42,6 +45,7 @@ require("php/conexion.php");
 
 
     </div>
+    
 
     <div class= "form-check d-flex justify-content-center ">
         <form method="post" action="php/suscripciones.php">

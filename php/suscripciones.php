@@ -31,64 +31,84 @@ require("../php/conexion.php");
     <main class="container" id="main-content">
         <div class="row">
             <h1 id="inicio" class="d-flex justify-content-center">Epic Prime</h1>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex justify-content-center">
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" id="boton">Top 3 peliculas</button>
+            </div>    
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Top 3 Peliculas</h5>
+                            
+                            <ul>
+                                <?php  # top 3 peliculas y series mas vistas item 3.2
+                                $proveedor = $_POST["proveedor"];
+                                $query = "SELECT * FROM (SELECT peliculas.pid, peliculas.nombre, COUNT(peliculas.pid) as cuenta FROM visualizaciones_pelicula, peliculas, peliculas_en_arriendo, 
+                                proveedor WHERE visualizaciones_pelicula.pid = peliculas.pid AND peliculas_en_arriendo.pid = peliculas.pid 
+                                AND peliculas_en_arriendo.pro_id = proveedor.pro_id AND proveedor.nombre = '$proveedor' GROUP BY peliculas.nombre, peliculas.pid UNION SELECT peliculas.pid, peliculas.nombre, 
+                                COUNT(peliculas.pid) as cuenta FROM visualizaciones_pelicula, peliculas, peliculas_no_arriendo, proveedor 
+                                WHERE visualizaciones_pelicula.pid = peliculas.pid AND peliculas_no_arriendo.pid = peliculas.pid 
+                                AND peliculas_no_arriendo.pro_id = proveedor.pro_id AND proveedor.nombre = '$proveedor' GROUP BY peliculas.pid, peliculas.nombre) as p ORDER BY -cuenta LIMIT 3";
+                                $result = $db2 -> prepare($query);
+                                $result -> execute();
+                                $consulta = $result -> fetchAll();
+                                echo"<li><a class='text-white' href='#'>holaaaa</a></li>";
+                                echo $consulta;
+                                echo $query;
+
+
+                                foreach ($consulta as $top) {
+                                    echo "<li><a class='text-white' href='#'>$top[1]</a></li>";
+                                }
+                                ?>
+                            </ul>
+                            <button type="button" id="salida" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex justify-content-center">
+                            <form action="php/validacion.php" method="post">
+
+                                <button id="botones" type="button" class="btn-cancel btn-secondary" data-bs-dismiss="modal">Close</button>   
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+
             
-            <div class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown link
-            </a>
-
-            </form>
-            <ul class="dropdown-menu dropdown-menu-dark text-white" aria-labelledby="dropdownMenuLink">
-                
-                <?php  # top 3 peliculas y series mas vistas item 3.2
-                    $query = "SELECT * FROM (SELECT peliculas.pid, COUNT(peliculas.pid) as cuenta FROM visualizaciones_pelicula, peliculas, peliculas_en_arriendo, 
-                    proveedor WHERE visualizaciones_pelicula.pid = peliculas.pid AND peliculas_en_arriendo.pid = peliculas.pid 
-                    AND peliculas_en_arriendo.pro_id = proveedor.pro_id AND proveedor.nombre = '$proveedor' GROUP BY peliculas.pid UNION SELECT peliculas.pid, 
-                    COUNT(peliculas.pid) as cuenta FROM visualizaciones_pelicula, peliculas, peliculas_no_arriendo, proveedor 
-                    WHERE visualizaciones_pelicula.pid = peliculas.pid AND peliculas_no_arriendo.pid = peliculas.pid 
-                    AND peliculas_no_arriendo.pro_id = proveedor.pro_id AND proveedor.nombre = '$proveedor' GROUP BY peliculas.pid) as p ORDER BY -cuenta LIMIT 3";
-                    $result = $db2 -> prepare($query);
-                    $result -> execute();
-                    $consulta = $result -> fetchAll();
-
-
-                    foreach ($consulta as $top) {
-                        echo "<li><a class='dropdown-item text-white' href='#'>$top[0]</a></li>";
+                </ul>  
+            <?php #valor,cantidad y series segun sucripcion item 3.2
+            $proveedor = $_POST["proveedor"];
+            $query = "SELECT pro_id, nombre, costo, SUM(cuenta) FROM (SELECT proveedor.pro_id, proveedor.nombre, proveedor.costo, COUNT(proveedor.pro_id) 
+            as cuenta FROM proveedor, peliculas, peliculas_en_arriendo WHERE peliculas.pid = peliculas_en_arriendo.pid 
+            AND proveedor.pro_id = peliculas_en_arriendo.pro_id AND proveedor.nombre = '$proveedor' GROUP BY proveedor.pro_id 
+            UNION SELECT proveedor.pro_id, proveedor.nombre, proveedor.costo, COUNT(proveedor.pro_id) as cuenta FROM proveedor, peliculas, 
+            peliculas_no_arriendo WHERE peliculas.pid = peliculas_no_arriendo.pid AND proveedor.pro_id = peliculas_no_arriendo.pro_id AND proveedor.nombre = '$proveedor'
+            GROUP BY proveedor.pro_id) as p GROUP BY pro_id, nombre, costo";
+            
+            $result = $db2 -> prepare($query);
+            $result -> execute();
+            $consulta = $result -> fetchAll();
+            echo "<h1 class='text-white d-flex justify-content-center'> $proveedor </h1>";
+            ?>
+            <Table class="text-white">
+                <tr>
+                    <th>Valor</th>
+                    <th>Cantidad Peliculas</th>
+                    <th>Cantidad Series</th>
+                </tr>
+                <?php 
+                    foreach($consulta as $info) {
+                        echo "<tr><td>$info[2]</td><td>$info[3]</td><td>$info[2]</td></tr>";
                     }
                 ?>
-            </ul>
-                <?php #valor,cantidad y series segun sucripcion item 3.2
-                $proveedor = $_POST["proveedor"];
-                $query = "SELECT pro_id, nombre, costo, SUM(cuenta) FROM (SELECT proveedor.pro_id, proveedor.nombre, proveedor.costo, COUNT(proveedor.pro_id) 
-                as cuenta FROM proveedor, peliculas, peliculas_en_arriendo WHERE peliculas.pid = peliculas_en_arriendo.pid 
-                AND proveedor.pro_id = peliculas_en_arriendo.pro_id AND proveedor.nombre = '$proveedor' GROUP BY proveedor.pro_id 
-                UNION SELECT proveedor.pro_id, proveedor.nombre, proveedor.costo, COUNT(proveedor.pro_id) as cuenta FROM proveedor, peliculas, 
-                peliculas_no_arriendo WHERE peliculas.pid = peliculas_no_arriendo.pid AND proveedor.pro_id = peliculas_no_arriendo.pro_id AND proveedor.nombre = '$proveedor'
-                GROUP BY proveedor.pro_id) as p GROUP BY pro_id, nombre, costo";
-                
-                $result = $db2 -> prepare($query);
-                $result -> execute();
-                $consulta = $result -> fetchAll();
-                echo "<h1 class='text-white d-flex justify-content-center'> $proveedor </h1>";
-                ?>
-                <Table class="text-white">
-                    <tr>
-                        <th>Valor</th>
-                        <th>Cantidad Peliculas</th>
-                        <th>Cantidad Series</th>
-                    </tr>
-                    <?php 
-                        foreach($consulta as $info) {
-                            echo "<tr><td>$info[2]</td><td>$info[3]</td><td>$info[2]</td></tr>";
-                        }
-                    ?>
-                </Table>
+            </Table>
         </div>
     </div>    
-    </main>         
+    </main>
+    <script src="../js/popper.min.js"></script>         
     <script src="../js/jquery-3.6.0.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery-3.6.0.min.js"></script>
     <script src="../js/script.js"></script>
 
 </body>

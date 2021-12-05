@@ -18,12 +18,14 @@ require("php/conexion.php");
                         <div id ="logo-image" alt = "logo" class="pull-left visible-lg visible-md visible-sm"></div>
                     </a>   
                 </div>
+                
                 <div class="dropdown">
                     <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                       Cuenta
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
                       <li><a class="dropdown-item" href="php/infor_personal.php">Información Personal</a></li>
+                      <li><a class="dropdown-item" href="php/filtrador.php">Funcionalidad Extra</a></li>
                       <li><a class="dropdown-item" href="index.php">Cerrar Sesion</a></li>
                     </ul>
                 </div>
@@ -40,6 +42,7 @@ require("php/conexion.php");
 
 
     </div>
+
     <div class= "form-check d-flex justify-content-center ">
         <form method="post" action="php/suscripciones.php">
             <?php 
